@@ -1,50 +1,74 @@
-const userReg = "user2442"
-const passwordReg = "12345!"
+// USUARIO PARA INGRESAR AL "SISTEMA"
+const adminUser = "admin";
+const adminPassword = "admin123";
+let login = false;
+let attempts = 3;
 
-let bienvenida = prompt("Bienvenid@ a Login 2.0! Si ya estas registrado presioná 1 sino registrate presionando 2.")
-let login = false
-let block = false
+// PROCESO WHILE PARA INGRESAR AL "SISTEMA"
+while (!login && attempts > 0) {
+    const loginUser = prompt("Bienvenido a Advanced Police Verification (A.P.V.)\nA continuación, ingrese su nombre de usuario:");
 
-while (bienvenida == "1" || bienvenida == "2" && !login || !block) {
-    if (bienvenida == "1") {
-        let userLog = prompt("Ingresa tu nombre de usuario")
-        if (userLog !== userReg) {
-            alert("Erorr: Usuario incorrecto")
+    if (loginUser === adminUser) {
+        const loginPass = prompt("Ingrese su contraseña:");
+
+        if (loginPass === adminPassword) {
+            login = true;
+            alert("Inicio de sesión exitoso. Bienvenido, Admin.");
+            // SI ACCEDES AL "SISTEMA" TE PERMITE UTILIZAR LAS FUNCIONES
+            searchUser();
+            searchID();
+            allUsers();
         } else {
-            let passwordLog;
-            let intentos = 3
-
-            while (intentos > 0) {
-                passwordLog = prompt("Ingresa tu contraseña")
-                if (passwordLog == passwordReg) {
-                    alert(`Bienvenido ${userReg}`)
-                    login = true
-                    break;
-                } else {
-                    intentos--;
-                    alert(`Error: Contraseña incorrecta, restan ${intentos} intentos.`)
-                }
-
-                if (intentos == 0) {
-                    alert("Agotaste los 3 intentos, volvé dentro de 1 hora.")
-                    block = true
-                    break;
-                }
-            }
+            attempts--;
+            alert(`Contraseña incorrecta. Intentos restantes: ${attempts}`);
         }
-    } else if (bienvenida == "2") {
-        let userNew = prompt("Bienvenido al registro de usuario. Por favor, ingresa un nombre de usuario")
-        let passwordNew = prompt("Ingresa una contraseña")
-        if (userNew && passwordNew) {
-            alert(`Bienvenido ${userNew}, esperamos que disfrutes de nuestra comunidad.`)
-            break;
-        } else {
-            alert("Hay campos vacios.")
-        }
+    } else {
+        attempts--;
+        alert(`Usuario incorrecto. Intentos restantes: ${attempts}`);
     }
+}
+
+if (attempts === 0) {
+    alert("Cuenta bloqueada. Has excedido el número de intentos permitidos.");
+}
 
 
-    if (login || block) { //Condicional para cerrar el ciclo por si se inicia sesión o si supera los 3 intentos.
-        break;
+
+// FUNCIONES DE ORDEN SUPERIOR .FILTER .FIND .MAP
+function searchUser() {
+    const nameSearch = prompt("Ingresa un nombre o apellido de ciudadano").toLowerCase()
+    const citizen = usersData.filter((civil) => civil.name.toLowerCase() == nameSearch || civil.lastname.toLowerCase() == nameSearch);
+
+    if (citizen.length > 0) {
+        console.log("Se encontraron los siguientes datos:");
+        citizen.forEach(citizen => {
+            console.log(`Nombre: ${citizen.name}, Apellido: ${citizen.lastname}, ID: ${citizen.id}, ByC: ${citizen.byc}`);
+
+        });
+    } else {
+        console.log("Ciudadano(s) no encontrado(s)");
+    }
+}
+
+function searchID() {
+    const idSearch = prompt("Ingresa el ID del ciudadano").toLowerCase()
+    const idCitizen = usersData.find((civil) => civil.id.toLowerCase() === idSearch)
+
+    if (idCitizen) {
+        console.log(`Se encontraron los siguientes datos con la ID otorgada:\n- Nombre: ${idCitizen.name}\n- Apellido: ${idCitizen.lastname}\n- Edad: ${idCitizen.age}\n- Sujeto peligroso: ${idCitizen.danger}\n- En búsqueda y captura: ${idCitizen.byc}`);
+    } else {
+        console.log("No se encontraron datos con la ID registrada.");
+
+    }
+}
+
+function allUsers() {
+    const dbCitizen = parseInt(prompt("¿Quiere cargar toda la base de datos? \n1. Sí\n2. No"))
+
+    if (dbCitizen == 1) {
+        const citizens = usersData.map((citizen) => `Nombre: ${citizen.name}, Apellido: ${citizen.lastname}, ID: ${citizen.id}`)
+        console.log(citizens)
+    } else {
+        alert("Carga de datos rechazada.")
     }
 }
