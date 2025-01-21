@@ -1,5 +1,5 @@
 // USUARIO PARA INGRESAR AL "SISTEMA"
-import { userAccess } from "/js/db.js";
+import { userAccess } from "./db.js";
 
 // Obtener los elementos del DOM
 const usernameInput = document.getElementById("username");
