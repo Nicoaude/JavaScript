@@ -1,5 +1,21 @@
 import { usersData } from "./db.js";
 
+// Verificar si el usuario está logueado al cargar la página en apv.html
+window.addEventListener("load", () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // Si no hay un usuario logueado, redirigir a index.html
+    if (!user) {
+        window.location.href = "/index.html";  // Redirigir al login
+    } else {
+        // Mostrar el nombre de usuario en el perfil si está logueado
+        if (userNameSpan) {
+            userNameSpan.textContent = `${user.username}`;
+        }
+    }
+});
+
+
 const userBoxContainer = document.querySelector(".box__container")
 
 usersData.forEach(user => {
