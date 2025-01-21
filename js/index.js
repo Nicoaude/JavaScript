@@ -34,7 +34,7 @@ function login() {
 
     if (user) {
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "./pages/apv.html"
+        window.location.href = "/pages/apv.html"
     } else {
         alert("Usuario y/o contraseña incorrecto.");
     }
@@ -45,7 +45,7 @@ function logout() {
     window.location.href = "index.html"
 }
 
-if (window.location.pathname.includes("./pages/apv.html")) {
+if (window.location.pathname.includes("/pages/apv.html")) {
     showProfile()
 }
 
