@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     const user = JSON.parse(localStorage.getItem("user"))
 
     if (user && window.location.pathname === "/index.html") {
-        window.location.href = "./pages/apv.html"
+        window.location.href = "/pages/apv.html"
     }
 });
 
@@ -34,7 +34,7 @@ function login() {
 
     if (user) {
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "./pages/apv.html"
+        window.location.href = "/pages/apv.html"
     } else {
         alert("Usuario y/o contraseña incorrecto.");
     }
