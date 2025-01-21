@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     const user = JSON.parse(localStorage.getItem("user"))
 
     if (user && window.location.pathname === "/index.html") {
-        window.location.href = "/pages/apv.html"
+        window.location.href = "/JavaScript/pages/apv.html"
     }
 });
 
