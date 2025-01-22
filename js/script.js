@@ -1,17 +1,5 @@
 import { usersData } from "./db.js";
 
-window.addEventListener("load", () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-        window.location.href = "../index.html";
-    } else {
-        if (userNameSpan) {
-            userNameSpan.textContent = `${user.username}`;
-        }
-    }
-});
-
-
 const userBoxContainer = document.querySelector(".box__container")
 
 usersData.forEach(user => {
@@ -29,3 +17,14 @@ usersData.forEach(user => {
 
     userBoxContainer.appendChild(userBox);
 })
+
+window.addEventListener("load", () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+        window.location.href = "../index.html";
+    } else {
+        if (userNameSpan) {
+            userNameSpan.textContent = `${user.username}`;
+        }
+    }
+});
