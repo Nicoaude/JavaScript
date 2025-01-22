@@ -9,8 +9,8 @@ const userNameSpan = document.getElementById("userNameSpan")
 window.addEventListener("load", () => {
     const user = JSON.parse(localStorage.getItem("user"))
 
-    if (user && window.location.pathname === "/javascript/index.html") {
-        window.location.href = "/javascript/pages/apv.html"
+    if (user && window.location.pathname === "/Javascript/index.html") {
+        window.location.href = "/Javascript/pages/apv.html"
     }
 });
 
@@ -22,7 +22,7 @@ function showProfile() {
             userNameSpan.textContent = `${user.username}`
         }
     } else {
-        window.location.href = "/javascript/index.html"
+        window.location.href = "/Javascript/index.html"
     }
 }
 
@@ -34,7 +34,7 @@ function login() {
 
     if (user) {
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "/javascript/pages/apv.html"
+        window.location.href = "/Javascript/pages/apv.html"
     } else {
         alert("Usuario y/o contraseña incorrecto.");
     }
@@ -42,10 +42,10 @@ function login() {
 
 function logout() {
     localStorage.removeItem("user");
-    window.location.href = "/javascript/index.html"
+    window.location.href = "/Javascript/index.html"
 }
 
-if (window.location.pathname.includes("/javascript/pages/apv.html")) {
+if (window.location.pathname.includes("/Javascript/pages/apv.html")) {
     showProfile()
 }
 
