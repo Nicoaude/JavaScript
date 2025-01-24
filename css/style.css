@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: 768px; }
+  justify-content: center; }
   .tablet-lspd h1 {
     font-family: "Roboto", Sans-serif;
     font-size: 40px;
@@ -29,7 +29,7 @@
     border-color: #022249;
     margin-top: 10em; }
   .tablet-lspd img {
-    width: 40%;
+    width: 15%;
     position: absolute;
     margin-bottom: 6.2em; }
   .tablet-lspd .box-container {
@@ -78,7 +78,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #022249;
-  margin-top: 2.5em;
+  margin-top: 8rem;
   height: 7.5em; }
   footer p {
     font-family: "Roboto", Sans-serif;
@@ -92,7 +92,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 20px 2%;
-  background-color: #e3e8f1; }
+  background-color: #e3e8f1;
+  position: relative; }
   nav h1 {
     font-family: "Roboto", Sans-serif;
     font-size: 40px;
@@ -105,16 +106,140 @@ nav {
     width: 80px;
     left: 0;
     top: 0; }
-  nav ul li {
-    list-style: none;
-    display: inline-block;
-    padding: 10px 10px; }
-    nav ul li a {
-      text-decoration: none;
-      font-family: "Roboto", Sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      text-transform: uppercase; }
+  nav #userNameSpan {
+    margin-left: auto;
+    margin-right: 1em;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333; }
+  nav ul {
+    display: flex;
+    align-items: center; }
+    nav ul li {
+      list-style: none;
+      margin-right: 20px; }
+      nav ul li a {
+        text-decoration: none;
+        color: #34495e;
+        font-family: "Roboto", Sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        padding: 10px; }
+    nav ul .container {
+      position: relative;
+      width: 180px;
+      /* Ancho ajustado para ser más compacto */
+      height: 50px;
+      /* Altura ajustada para alinearse mejor con el nav */ }
+      nav ul .container input {
+        font-family: "Roboto", Sans-serif;
+        /* Misma fuente que el nav */
+        font-size: 14px;
+        /* Tamaño de fuente acorde con el nav */
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        /* Ancho más pequeño para iniciar */
+        height: 30px;
+        /* Altura más pequeña para alinearse con los elementos del nav */
+        outline: none;
+        border: none;
+        background: #2c3e50;
+        /* Azul oscuro */
+        color: white;
+        text-shadow: 0 0 10px #2c3e50;
+        padding: 0 50px 0 15px;
+        /* Ajustamos el padding */
+        border-radius: 20px;
+        /* Radio de borde ajustado */
+        box-shadow: 0 0 10px 0 #2c3e50, 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+        /* Reducimos la sombra */
+        transition: all 0.7s;
+        opacity: 0;
+        z-index: 5;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        /* Espaciado de letras más sutil */ }
+        nav ul .container input:hover {
+          cursor: pointer; }
+        nav ul .container input:focus {
+          width: 180px;
+          /* Ancho del input expandido */
+          opacity: 1;
+          cursor: text; }
+        nav ul .container input:focus ~ .search {
+          right: -150px;
+          /* Ajustamos el movimiento del icono */
+          background: #34495e;
+          /* Gris oscuro */
+          z-index: 6; }
+          nav ul .container input:focus ~ .search::before {
+            top: 0;
+            left: 0;
+            width: 25px; }
+          nav ul .container input:focus ~ .search::after {
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 2px;
+            border: none;
+            background: white;
+            border-radius: 0%;
+            transform: rotate(-45deg); }
+        nav ul .container input::placeholder {
+          color: white;
+          opacity: 0.5;
+          font-weight: 400; }
+      nav ul .container .search {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        /* Tamaño ajustado del icono de búsqueda */
+        height: 60px;
+        /* Tamaño ajustado del icono de búsqueda */
+        background: #2c3e50;
+        /* Azul oscuro */
+        border-radius: 50%;
+        transition: all 0.7s;
+        z-index: 4;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4); }
+        nav ul .container .search:hover {
+          cursor: pointer; }
+        nav ul .container .search::before {
+          content: "";
+          position: absolute;
+          margin: auto;
+          top: 15px;
+          right: 0;
+          bottom: 0;
+          left: 15px;
+          width: 10px;
+          height: 2px;
+          background: white;
+          transform: rotate(45deg);
+          transition: all 0.5s; }
+        nav ul .container .search::after {
+          content: "";
+          position: absolute;
+          margin: auto;
+          top: -5px;
+          right: 0;
+          bottom: 0;
+          left: -5px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 2px solid white;
+          transition: all 0.5s; }
 
 .fichas__container {
   display: flex;
@@ -130,6 +255,10 @@ nav {
       flex-grow: 1;
       padding: 24px; }
       .fichas__container .fichas__ciudadanos .box__container .box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         background-color: #FFFFFF;
         height: 300px;
         margin: 20px;
@@ -141,12 +270,33 @@ nav {
           width: 200px;
           border-radius: 16px 16px 16px 16px; }
         .fichas__container .fichas__ciudadanos .box__container .box h1 {
-          color: #000000;
-          font-weight: bold;
+          color: #2c3e50;
           font-size: 18px;
-          font-family: Arial, Helvetica, sans-serif;
-          margin: 0px;
+          font-family: "Roboto", Sans-serif;
+          margin-top: 15px;
           padding: 0px; }
+        .fichas__container .fichas__ciudadanos .box__container .box p {
+          color: #354352;
+          margin-top: 5px; }
+        .fichas__container .fichas__ciudadanos .box__container .box .status-container {
+          display: flex;
+          gap: 10px;
+          /* Espacio entre las etiquetas */
+          margin-top: 10px; }
+        .fichas__container .fichas__ciudadanos .box__container .box .status {
+          padding: 3px 8px;
+          border-radius: 20px;
+          font-family: "Roboto", Sans-serif;
+          text-transform: uppercase;
+          font-size: 10px;
+          /* Tamaño más pequeño */
+          color: white; }
+          .fichas__container .fichas__ciudadanos .box__container .box .status.danger {
+            background-color: #e74c3c;
+            /* Rojo para peligroso */ }
+          .fichas__container .fichas__ciudadanos .box__container .box .status.byc {
+            background-color: #f39c12;
+            /* Naranja para búsqueda y captura */ }
 
 .profile__container {
   display: flex;
@@ -154,9 +304,42 @@ nav {
   align-items: center;
   justify-content: flex-end;
   margin: 50px 10px; }
-  .profile__container .profile .profile__box {
+  .profile__container .profile__info .profile .profile__box {
+    display: flex;
+    flex-direction: column;
     padding: 20px; }
-    .profile__container .profile .profile__box img {
-      width: 200px; }
-    .profile__container .profile .profile__box h1 {
-      color: green; }
+    .profile__container .profile__info .profile .profile__box img {
+      width: 200px;
+      box-shadow: 2px 7px 13px 0px rgba(0, 0, 0, 0.2); }
+    .profile__container .profile__info .profile .profile__box h1 {
+      margin-top: 10px;
+      color: #34495e;
+      font-family: "Roboto", Sans-serif; }
+    .profile__container .profile__info .profile .profile__box .profile-item {
+      display: flex;
+      justify-content: flex-start;
+      padding: 2px; }
+      .profile__container .profile__info .profile .profile__box .profile-item h3 {
+        margin-right: 10px;
+        font-family: "Roboto", Sans-serif; }
+      .profile__container .profile__info .profile .profile__box .profile-item p {
+        margin: 0;
+        font-family: "Roboto", Sans-serif; }
+  .profile__container .profile__info .profile__edit {
+    display: flex;
+    flex-direction: column; }
+    .profile__container .profile__info .profile__edit button {
+      margin-top: 6px;
+      margin-left: 15px;
+      padding: 10px 5px;
+      background-color: #1977d4;
+      color: #ffffff;
+      font-size: 14px;
+      border-radius: 2px;
+      border: 1px solid;
+      font-family: "Roboto", Sans-serif; }
+      .profile__container .profile__info .profile__edit button:hover {
+        color: #d42f2f;
+        background-color: #ffffff; }
+    .profile__container .profile__info .profile__edit .del__button {
+      background-color: #d42f2f; }

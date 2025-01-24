@@ -4,7 +4,7 @@ const usernameInput = document.getElementById("username")
 const passwordInput = document.getElementById("password")
 const loginBtn = document.getElementById("login__btn")
 const logoutBtn = document.getElementById("logout__btn")
-const userNameSpan = document.getElementById("userNameSpan")
+const userNameSpan = document.getElementById("username")
 
 window.addEventListener("load", () => {
     const user = JSON.parse(localStorage.getItem("user"))
