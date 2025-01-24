@@ -260,7 +260,7 @@ nav {
         align-items: flex-start;
         justify-content: center;
         background-color: #FFFFFF;
-        height: 300px;
+        height: 350px;
         margin: 20px;
         padding: 20px 15px;
         border-radius: 16px 16px 16px 16px;
@@ -307,8 +307,7 @@ nav {
   .profile__container .profile__info .profile .profile__box {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    width: 250; }
+    padding: 20px; }
     .profile__container .profile__info .profile .profile__box img {
       width: 200px;
       box-shadow: 2px 7px 13px 0px rgba(0, 0, 0, 0.2); }
