@@ -8,7 +8,7 @@ export const usersData = [
         crecord: "",
         danger: true,
         byc: true,
-        img: "",
+        img: "https://cdn.discordapp.com/attachments/887237540350939177/1332241121056915509/steamwebhelper_iQUB9JEa1K.png?ex=679489bb&is=6793383b&hm=51835c9b795bffb993209b1a2bf11601913365641d4c3691e77ed3ec4c1de693&",
         antecedentes: [
             { year: 2015, description: "Robo a mano armada" },
             { year: 2018, description: "Agresión física" }
