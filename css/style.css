@@ -325,6 +325,9 @@ nav {
       .profile__container .profile__info .profile .profile__box .profile-item p {
         margin: 0;
         font-family: "Roboto", Sans-serif; }
+      .profile__container .profile__info .profile .profile__box .profile-item #user-note {
+        max-width: 100px;
+        word-wrap: normal; }
   .profile__container .profile__info .profile__edit {
     display: flex;
     flex-direction: column; }
