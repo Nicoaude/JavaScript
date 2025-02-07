@@ -1,5 +1,5 @@
 // Cargar los datos de usersData desde un archivo JSON en lugar de un módulo
-fetch('./data/dbUsers.json')
+fetch('/JavaScript/data/dbUsers.json')
     .then(response => response.json())
     .then(usersData => {
         const urlParams = new URLSearchParams(window.location.search);

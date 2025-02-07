@@ -16,7 +16,7 @@ async function loadUsers() {
 
     if (!storedUsersData) {
         try {
-            const response = await fetch("./data/dbUsers.json"); // Aquí debes colocar la URL de tu archivo JSON
+            const response = await fetch("/JavaScript/data/dbUsers.json"); // Aquí debes colocar la URL de tu archivo JSON
             const usersData = await response.json();
             localStorage.setItem('usersData', JSON.stringify(usersData)); // Guardamos los datos en localStorage
             renderUsers(usersData);
