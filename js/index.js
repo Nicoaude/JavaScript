@@ -1,5 +1,3 @@
-import { userAccess } from "./db.js"
-
 const usernameInput = document.getElementById("username")
 const passwordInput = document.getElementById("password")
 const loginBtn = document.getElementById("login__btn")
@@ -27,18 +25,34 @@ function showProfile() {
 }
 
 function login() {
-    const username = usernameInput.value
-    const password = passwordInput.value
+    const username = usernameInput.value;
+    const password = passwordInput.value;
 
-    const user = userAccess.find(u => u.username === username && u.password === password)
+    setTimeout(() => {
+        fetch("/JavaScript/data/userAccess.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Error al cargar el archivo JSON");
+                }
+                return response.json();
+            })
+            .then(userAccess => {
+                const user = userAccess.find(u => u.username === username && u.password === password);
 
-    if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "/JavaScript/pages/apv.html"
-    } else {
-        alert("Usuario y/o contraseña incorrecto.");
-    }
+                if (user) {
+                    localStorage.setItem("user", JSON.stringify(user));
+                    window.location.href = "/JavaScript/pages/apv.html";
+                } else {
+                    alert("Usuario y/o contraseña incorrecto.");
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Ocurrió un error al intentar iniciar sesión.");
+            });
+    }, 2000);
 }
+
 
 function logout() {
     localStorage.removeItem("user");
