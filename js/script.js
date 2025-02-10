@@ -14,7 +14,7 @@ async function loadUsers() {
 
     if (!storedUsersData) {
         try {
-            const response = await fetch("../data/dbUsers.json");
+            const response = await fetch("./JavaScript/data/dbUsers.json");
             const usersData = await response.json();
             localStorage.setItem('usersData', JSON.stringify(usersData));
             renderUsers(usersData);

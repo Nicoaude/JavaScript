@@ -1,4 +1,4 @@
-fetch('../data/dbUsers.json')
+fetch('./JavaScript/data/dbUsers.json')
     .then(response => response.json())
     .then(usersData => {
         const urlParams = new URLSearchParams(window.location.search);
