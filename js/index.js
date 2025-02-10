@@ -7,8 +7,8 @@ const userNameSpan = document.getElementById("username")
 window.addEventListener("load", () => {
     const user = JSON.parse(localStorage.getItem("user"))
 
-    if (user && window.location.pathname === "/JavaScript/index.html") {
-        window.location.href = "/JavaScript/pages/apv.html"
+    if (user && window.location.pathname === "/index.html") {
+        window.location.href = "/pages/apv.html"
     }
 });
 
@@ -20,7 +20,7 @@ function showProfile() {
             userNameSpan.textContent = `${user.username}`
         }
     } else {
-        window.location.href = "/JavaScript/index.html"
+        window.location.href = "/index.html"
     }
 }
 
@@ -29,7 +29,7 @@ function login() {
     const password = passwordInput.value;
 
     setTimeout(() => {
-        fetch("/JavaScript/data/dbAccess.json")
+        fetch("/data/dbAccess.json")
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Error al cargar el archivo JSON");
@@ -41,9 +41,19 @@ function login() {
 
                 if (user) {
                     localStorage.setItem("user", JSON.stringify(user));
-                    window.location.href = "/JavaScript/pages/apv.html";
+                    window.location.href = "/pages/apv.html";
                 } else {
-                    alert("Usuario y/o contraseña incorrecto.");
+                    Toastify({
+                        text: "Usuario y/o contraseña incorrecto.",
+                        duration: 3000,
+                        backgroundColor: "#c45c5c",
+                        close: true,
+                        gravity: "bottom",
+                        position: "right",
+                        style: {
+                            fontFamily: "'Arial', sans-serif"
+                        }
+                    }).showToast();
                 }
             })
             .catch(error => {
@@ -56,10 +66,10 @@ function login() {
 
 function logout() {
     localStorage.removeItem("user");
-    window.location.href = "/JavaScript/index.html"
+    window.location.href = "/index.html"
 }
 
-if (window.location.pathname.includes("/JavaScript/pages/apv.html")) {
+if (window.location.pathname.includes("/pages/apv.html")) {
     showProfile()
 }
 

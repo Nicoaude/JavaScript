@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>A.P.V. | Advanced Police Verification</title>
 </head>
 
@@ -22,7 +23,7 @@
                 <li><a id="logout__btn" href="">Cerrar sesión</a></li>
                 <li>
                     <div class="container">
-                        <input type="text" placeholder="Search...">
+                        <input type="text" placeholder="Buscar...">
                         <div class="search"></div>
                     </div>
                 </li>
@@ -31,7 +32,6 @@
     </header>
     <main>
         <section class="profile__container">
-            <h2>Antecedentes penales</h2>
             <div class="profile__info">
                 <div class="profile">
                 </div>
@@ -43,50 +43,59 @@
                     <button id="notes__delete" class="del__button">Eliminar notas</button>
                 </div>
             </div>
-
-
-            <!-- <h3>Antecedentes Penales:</h3>
-<table id="antecedentes">
-    <thead>
-        <tr><th>Año</th><th>Descripción</th></tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-
-<h3>Deudas:</h3>
-<table id="deudas">
-    <thead>
-        <tr><th>Entidad</th><th>Monto</th><th>Pagado</th></tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-
-<h3>Vehículos en propiedad:</h3>
-<table id="vehiculos">
-    <thead>
-        <tr><th>Marca</th><th>Modelo</th><th>Año</th></tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-
-<h3>Propiedades:</h3>
-<table id="propiedades">
-    <thead>
-        <tr><th>Tipo</th><th>Dirección</th></tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table> -->
-
+            <div class="datos__tabla">
+                <h3>Antecedentes Penales</h3>
+                <table id="antecedentes">
+                    <thead>
+                        <tr><th>Fecha</th><th>Descripción</th></tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                
+                <h3>Deudas</h3>
+                <table id="deudas">
+                    <thead>
+                        <tr><th>Descripción</th><th>Monto</th></tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="datos__prop">
+                    <div class="datos__container">
+                        <h3>Vehículos en propiedad</h3>
+                        <table id="vehiculos">
+                            <thead>
+                                <tr><th>Marca</th><th>Modelo</th></tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datos__container">
+                        <h3>Propiedades</h3>
+                        <table id="propiedades">
+                            <thead>
+                                <tr><th>Tipo</th></tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            
 
         </section>
     </main>
 
     <script type="module" src="../js/profile.js"></script>
     <script type="module" src="../js/index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

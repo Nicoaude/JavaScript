@@ -1,5 +1,5 @@
 // Cargar los datos de usersData desde un archivo JSON en lugar de un módulo
-fetch('/JavaScript/data/dbUsers.json')
+fetch('/data/dbUsers.json')
     .then(response => response.json())
     .then(usersData => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -43,24 +43,75 @@ fetch('/JavaScript/data/dbUsers.json')
             profile.appendChild(profileBox);
 
             document.getElementById('photo__update').addEventListener('click', () => {
-                const photoUrl = prompt('Ingresa el nuevo link de la foto:');
-                if (photoUrl) {
-                    user.img = photoUrl;
-                    document.getElementById('profile-image').src = photoUrl;
-                    localStorage.setItem(`profileImg-${user.id}`, photoUrl);
-                    localStorage.setItem('usersData', JSON.stringify(storedUsersData));
-                }
+                Swal.fire({
+                    title: 'Ingresa el nuevo link de la foto',
+                    input: 'url', // tipo de entrada como URL
+                    inputPlaceholder: 'https://ejemplo.com/foto.jpg',
+                    showCancelButton: true,
+                    confirmButtonText: 'Aceptar',
+                    cancelButtonText: 'Cancelar',
+                    backdrop: true,
+                    customClass: {
+                        popup: 'popup-class',
+                        title: 'title-class',
+                        input: 'input-class', 
+                        confirmButton: 'confirm-button-class',
+                        cancelButton: 'cancel-button-class',
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed && result.value) {
+                        const photoUrl = result.value;
+                        user.img = photoUrl;
+                        document.getElementById('profile-image').src = photoUrl;
+                        localStorage.setItem(`profileImg-${user.id}`, photoUrl);
+                        localStorage.setItem('usersData', JSON.stringify(storedUsersData));
+            
+                        // Notificación con Toastify
+                        Toastify({
+                            text: `Foto de perfil actualizada.`,
+                            duration: 3000,
+                            backgroundColor: "#5c81c4",
+                            close: true,
+                            gravity: "bottom",
+                            position: "right",
+                            style: {
+                                fontFamily: "'Roboto', Sans-serif"
+                            }
+                        }).showToast();
+                    }
+                });
             });
+            
 
             document.getElementById('search__update').addEventListener('click', () => {
                 user.byc = !user.byc;
-                alert(`Búsqueda y Captura: ${user.byc ? 'Activado' : 'Desactivado'}`);
+                Toastify({
+                    text: `Búsqueda y Captura: ${user.byc ? 'Activado' : 'Desactivado'}`,
+                    duration: 3000,
+                    backgroundColor: user.byc ? "#5c81c4" : "#c45c5c",
+                    close: true,
+                    gravity: "bottom",
+                    position: "right",
+                    style: {
+                        fontFamily:"'Roboto', Sans-serif;"
+                    }
+                }).showToast();
                 localStorage.setItem('usersData', JSON.stringify(storedUsersData));
             });
 
             document.getElementById('danger__update').addEventListener('click', () => {
                 user.danger = !user.danger;
-                alert(`Peligroso: ${user.danger ? 'Activado' : 'Desactivado'}`);
+                Toastify({
+                    text: `Peligroso: ${user.danger ? 'Activado' : 'Desactivado'}`,
+                    duration: 3000,
+                    backgroundColor: user.danger ? "#5c81c4" : "#c45c5c",
+                    close: true,
+                    gravity: "bottom",
+                    position: "right",
+                    style: {
+                        fontFamily:"'Roboto', Sans-serif;"
+                    }
+                }).showToast();
                 localStorage.setItem('usersData', JSON.stringify(storedUsersData));
             });
 
@@ -72,30 +123,49 @@ fetch('/JavaScript/data/dbUsers.json')
                     alert('Nota actualizada: ' + newNote);
                     localStorage.setItem('usersData', JSON.stringify(storedUsersData));
                 } else {
-                    alert('El máximo es de 100 caracteres.');
+                    Toastify({
+                        text: 'El máximo es de 100 caracteres.',
+                        duration: 3000,
+                        backgroundColor: "#c45c5c",
+                        close: true,
+                        gravity: "bottom",
+                        position: "right",
+                        style: {
+                            fontFamily:"'Roboto', Sans-serif;"
+                        }
+                    }).showToast();
                 }
             });
 
             document.getElementById('notes__delete').addEventListener('click', () => {
                 user.note = '';
                 document.getElementById('user-note').textContent = 'No hay notas.';
-                alert('Nota eliminada.');
+                Toastify({
+                    text: 'Nota eliminada.',
+                    duration: 3000,
+                    backgroundColor: "#c45c5c",
+                    close: true,
+                    gravity: "bottom",
+                    position: "right",
+                    style: {
+                        fontFamily:"'Roboto', Sans-serif;"
+                    }
+                }).showToast();
                 localStorage.setItem('usersData', JSON.stringify(storedUsersData));
             });
 
             const antecedentesTable = document.getElementById('antecedentes').getElementsByTagName('tbody')[0];
             user.antecedentes.forEach(antecedente => {
                 const row = antecedentesTable.insertRow();
-                row.insertCell(0).textContent = antecedente.year;
+                row.insertCell(0).textContent = antecedente.date;
                 row.insertCell(1).textContent = antecedente.description;
             });
 
             const deudasTable = document.getElementById('deudas').getElementsByTagName('tbody')[0];
             user.deudas.forEach(deuda => {
                 const row = deudasTable.insertRow();
-                row.insertCell(0).textContent = deuda.entity;
+                row.insertCell(0).textContent = deuda.antecedente;
                 row.insertCell(1).textContent = deuda.amount;
-                row.insertCell(2).textContent = deuda.paid ? 'Sí' : 'No';
             });
 
             const vehiculosTable = document.getElementById('vehiculos').getElementsByTagName('tbody')[0];
@@ -103,14 +173,12 @@ fetch('/JavaScript/data/dbUsers.json')
                 const row = vehiculosTable.insertRow();
                 row.insertCell(0).textContent = vehiculo.brand;
                 row.insertCell(1).textContent = vehiculo.model;
-                row.insertCell(2).textContent = vehiculo.year;
             });
 
             const propiedadesTable = document.getElementById('propiedades').getElementsByTagName('tbody')[0];
             user.propiedades.forEach(propiedad => {
                 const row = propiedadesTable.insertRow();
                 row.insertCell(0).textContent = propiedad.type;
-                row.insertCell(1).textContent = propiedad.address;
             });
 
         } else {

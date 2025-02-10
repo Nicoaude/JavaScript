@@ -1,6 +1,7 @@
 const userBoxContainer = document.querySelector(".box__container");
 const searchInput = document.getElementById("search__input");
 const userName = document.getElementById("username");
+const loadingMessage = document.getElementById('loadingMessage');
 
 // Función para simular la carga de datos (con un retraso)
 function simulateDataLoad() {
@@ -16,7 +17,7 @@ async function loadUsers() {
 
     if (!storedUsersData) {
         try {
-            const response = await fetch("/JavaScript/data/dbUsers.json"); // Aquí debes colocar la URL de tu archivo JSON
+            const response = await fetch("/data/dbUsers.json"); // Aquí debes colocar la URL de tu archivo JSON
             const usersData = await response.json();
             localStorage.setItem('usersData', JSON.stringify(usersData)); // Guardamos los datos en localStorage
             renderUsers(usersData);
@@ -26,6 +27,7 @@ async function loadUsers() {
     } else {
         renderUsers(storedUsersData);
     }
+    loadingMessage.style.display = "none"; // Ocultar el mensaje de carga
 }
 
 // Función para renderizar los usuarios

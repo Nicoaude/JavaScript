@@ -106,12 +106,6 @@ nav {
     width: 80px;
     left: 0;
     top: 0; }
-  nav #userNameSpan {
-    margin-left: auto;
-    margin-right: 1em;
-    font-size: 18px;
-    font-weight: 500;
-    color: #333; }
   nav ul {
     display: flex;
     align-items: center; }
@@ -244,6 +238,10 @@ nav {
 .fichas__container {
   display: flex;
   justify-content: center; }
+  .fichas__container .loading-message p {
+    margin-top: 40px;
+    font-family: "Roboto", Sans-serif;
+    font-size: 30px; }
   .fichas__container .fichas__ciudadanos {
     display: flex; }
     .fichas__container .fichas__ciudadanos .box__container {
@@ -300,13 +298,8 @@ nav {
 
 .profile__container {
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 50px 10px; }
+  flex-direction: row; }
   .profile__container .profile__info .profile .profile__box {
-    display: flex;
-    flex-direction: column;
     padding: 20px; }
     .profile__container .profile__info .profile .profile__box img {
       width: 200px;
@@ -316,11 +309,10 @@ nav {
       color: #34495e;
       font-family: "Roboto", Sans-serif; }
     .profile__container .profile__info .profile .profile__box .profile-item {
-      display: flex;
-      justify-content: flex-start;
       padding: 2px; }
       .profile__container .profile__info .profile .profile__box .profile-item h3 {
         margin-right: 10px;
+        margin-bottom: 5px;
         font-family: "Roboto", Sans-serif; }
       .profile__container .profile__info .profile .profile__box .profile-item p {
         margin: 0;
@@ -346,3 +338,56 @@ nav {
         background-color: #ffffff; }
     .profile__container .profile__info .profile__edit .del__button {
       background-color: #d42f2f; }
+  .profile__container .datos__tabla {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 10rem;
+    font-family: "Roboto", Sans-serif; }
+    .profile__container .datos__tabla h3 {
+      font-size: 24px;
+      padding: 10px; }
+    .profile__container .datos__tabla table {
+      width: 600px;
+      text-align: center;
+      margin-bottom: 30px; }
+      .profile__container .datos__tabla table thead tr th {
+        padding: 16px 8px;
+        border-radius: 1px;
+        color: #141414;
+        font-size: 20px; }
+      .profile__container .datos__tabla table tbody {
+        font-size: 18px; }
+        .profile__container .datos__tabla table tbody tr td {
+          padding: 10px;
+          border-bottom: 1px solid #acaeb3; }
+    .profile__container .datos__tabla .datos__prop {
+      display: flex; }
+      .profile__container .datos__tabla .datos__prop .datos__container {
+        display: flex;
+        flex-direction: column;
+        margin-right: 60px; }
+
+/* Personalización para el modal */
+.popup-class {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff; }
+
+.title-class {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px; }
+
+.input-class {
+  font-size: 16px;
+  padding: 8px; }
+
+.confirm-button-class {
+  background-color: #5c81c4;
+  color: white;
+  border-radius: 5px; }
+
+.cancel-button-class {
+  background-color: #c45c5c;
+  color: white;
+  border-radius: 5px; }

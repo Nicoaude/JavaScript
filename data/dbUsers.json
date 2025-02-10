@@ -8,22 +8,22 @@
         "crecord": "",
         "danger": true,
         "byc": true,
-        "img": "https://cdn.discordapp.com/attachments/887237540350939177/1332241121056915509/steamwebhelper_iQUB9JEa1K.png?ex=679489bb&is=6793383b&hm=51835c9b795bffb993209b1a2bf11601913365641d4c3691e77ed3ec4c1de693&",
+        "img": "",
         "antecedentes": [
-            { "year": 2015, "description": "Robo a mano armada" },
-            { "year": 2018, "description": "Agresión física" }
+            { "date": "25/01/2025", "description": "Robo a mano armada" },
+            { "date": "12/01/2025", "description": "Agresión física" }
         ],
         "deudas": [
-            { "entity": "Banco Nacional", "amount": 5000, "paid": false },
-            { "entity": "Comisión de agua", "amount": 1500, "paid": true }
+            { "antecedente": "Intento de homicidio en segundo grado", "amount": 5000},
+            { "antecedente": "Comisión de agua", "amount": 1500}
         ],
         "vehiculos": [
-            { "brand": "Ford", "model": "Focus", "year": 2012 },
-            { "brand": "Chevrolet", "model": "Cruze", "year": 2018 }
+            { "brand": "Ford", "model": "Focus"},
+            { "brand": "Chevrolet", "model": "Cruze"}
         ],
         "propiedades": [
-            { "type": "Casa", "address": "Calle Ficticia 123" },
-            { "type": "Departamento", "address": "Avenida Real 456" }
+            { "type": "Casa"},
+            { "type": "Departamento"}
         ]
     },
     {
