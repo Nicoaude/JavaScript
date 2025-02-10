@@ -29,7 +29,7 @@ function login() {
     const password = passwordInput.value;
 
     setTimeout(() => {
-        fetch("./JavaScript/data/dbAccess.json")
+        fetch("./data/dbAccess.json")
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Error al cargar el archivo JSON");
