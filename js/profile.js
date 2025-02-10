@@ -1,11 +1,9 @@
-// Cargar los datos de usersData desde un archivo JSON en lugar de un módulo
-fetch('/data/dbUsers.json')
+fetch('../data/dbUsers.json')
     .then(response => response.json())
     .then(usersData => {
         const urlParams = new URLSearchParams(window.location.search);
         const profileID = urlParams.get('id');
 
-        // Obtener los datos desde localStorage o el JSON cargado
         const storedUsersData = JSON.parse(localStorage.getItem('usersData')) || usersData;
 
         const user = storedUsersData.find(user => user.id === profileID);
@@ -45,7 +43,7 @@ fetch('/data/dbUsers.json')
             document.getElementById('photo__update').addEventListener('click', () => {
                 Swal.fire({
                     title: 'Ingresa el nuevo link de la foto',
-                    input: 'url', // tipo de entrada como URL
+                    input: 'url',
                     inputPlaceholder: 'https://ejemplo.com/foto.jpg',
                     showCancelButton: true,
                     confirmButtonText: 'Aceptar',
@@ -66,7 +64,6 @@ fetch('/data/dbUsers.json')
                         localStorage.setItem(`profileImg-${user.id}`, photoUrl);
                         localStorage.setItem('usersData', JSON.stringify(storedUsersData));
             
-                        // Notificación con Toastify
                         Toastify({
                             text: `Foto de perfil actualizada.`,
                             duration: 3000,

@@ -58,7 +58,17 @@ function login() {
             })
             .catch(error => {
                 console.error(error);
-                alert("Ocurrió un error al intentar iniciar sesión.");
+                Toastify({
+                    text: "Surgió un error en el inicio de sesión.",
+                    duration: 3000,
+                    backgroundColor: "#c45c5c",
+                    close: true,
+                    gravity: "bottom",
+                    position: "right",
+                    style: {
+                        fontFamily: "'Arial', sans-serif"
+                    }
+                }).showToast();
             });
     }, 2000);
 }
