@@ -52,7 +52,7 @@ function renderUsers(users) {
     `;
 
         userBox.addEventListener("click", () => {
-            window.location.href = `/user.html?id=${user.id}`;
+            window.location.href = `../pages/user.html?id=${user.id}`;
         });
 
         userBoxContainer.appendChild(userBox);
