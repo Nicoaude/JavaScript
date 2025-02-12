@@ -15,11 +15,11 @@
         ],
         "deudas": [
             { "antecedente": "Intento de homicidio en segundo grado", "amount": 5000},
-            { "antecedente": "Comisión de agua", "amount": 1500}
+            { "antecedente": "Robo de vehiculo", "amount": 1000}
         ],
         "vehiculos": [
-            { "brand": "Ford", "model": "Focus"},
-            { "brand": "Chevrolet", "model": "Cruze"}
+            { "model": "Focus"},
+            { "model": "Cruze"}
         ],
         "propiedades": [
             { "type": "Casa"},
