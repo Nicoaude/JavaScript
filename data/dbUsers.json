@@ -18,8 +18,8 @@
             { "antecedente": "Robo de vehiculo", "amount": 1000}
         ],
         "vehiculos": [
-            { "model": "Focus"},
-            { "model": "Cruze"}
+            { "model": "9F Cabrio"},
+            { "model": "Akuma"}
         ],
         "propiedades": [
             { "type": "Casa"},
