@@ -168,8 +168,7 @@ fetch('../data/dbUsers.json')
             const vehiculosTable = document.getElementById('vehiculos').getElementsByTagName('tbody')[0];
             user.vehiculos.forEach(vehiculo => {
                 const row = vehiculosTable.insertRow();
-                row.insertCell(0).textContent = vehiculo.brand;
-                row.insertCell(1).textContent = vehiculo.model;
+                row.insertCell(0).textContent = vehiculo.model;
             });
 
             const propiedadesTable = document.getElementById('propiedades').getElementsByTagName('tbody')[0];
